@@ -1,3 +1,3 @@
-export default () => {
+export default (state, action) => {
   return 123
 };
