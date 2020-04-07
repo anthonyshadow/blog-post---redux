@@ -14,6 +14,14 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
   
   userIds.forEach(id => dispatch(fetchUser(id)));
 
+  //optional refactor to function above with .chain form lodash
+  
+  //_.chain(getState().posts)
+  //  .map('userId')
+  //  .uniq()
+  //  .forEach(id => dispatch(fetchUser(id)))
+  //  .value()     value executes all the steps above
+
 }
 
 //fetch all posts
