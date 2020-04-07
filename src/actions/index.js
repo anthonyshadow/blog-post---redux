@@ -3,7 +3,7 @@ import jsonPlaceholder from "../apis/jsonPlaceholder";
 export const fetchPosts = () => (dispatch, getState) => {
     jsonPlaceholder.get("/posts")
     .then((response) => {
-      dispatch({ type: 'FETCH_POSTS', payload: response})
+      dispatch({ type: 'FETCH_POSTS', payload: response.data})
     });   
   };
 
