@@ -1,5 +1,7 @@
 import jsonPlaceholder from "../apis/jsonPlaceholder";
 
+//fetch all posts
+
 export const fetchPosts = () => (dispatch, getState) => {
     jsonPlaceholder.get("/posts")
     .then((response) => {
@@ -7,8 +9,11 @@ export const fetchPosts = () => (dispatch, getState) => {
     });   
   };
 
-// export const selectPost = () => {
-//   return {
-//     type: 'SELECT_POST'
-//   }
-// }
+//fetch individual users (see id parameter)
+
+  export const fetchUser = (id) => (dispatch, getState) => {
+    jsonPlaceholder.get(`/users/${id}`)
+    .then((response) => {
+      dispatch({ type: 'FETCH_USER', payload: response.data})
+    });   
+  };

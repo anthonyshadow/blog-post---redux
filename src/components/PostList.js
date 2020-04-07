@@ -2,11 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchPosts} from '../actions';
 
+import UserHeader from './UserHeader';
+
 class PostList extends React.Component {
 
   componentDidMount() {
     this.props.fetchPosts();
   };
+
+  //helper function to render individual blog posts from state 
 
   renderList() {
     return this.props.posts.map (post => {
@@ -18,6 +22,7 @@ class PostList extends React.Component {
               <h2>{post.title}</h2>
               <p>{post.body}</p>
             </div>
+            <UserHeader userId={post.userId}/>
           </div>
         </div>
       )
